@@ -7,24 +7,17 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header id="status-bar">
-    <span id="deck-name">Anki Remote</span>
-    <span id="conn-dot" class="dot dot-off"></span>
-  </header>
+  <span id="conn-dot" class="dot dot-off"></span>
 
-  <main id="card-area">
-    <div id="empty-state">
-      <p id="empty-message">Not reviewing.</p>
-      <p class="hint">Open a deck in Anki on your computer and start reviewing — this page will sync automatically.</p>
+  <main id="app">
+    <div id="empty-state" class="zone">
+      <p id="empty-message">Not reviewing</p>
     </div>
-    <div id="card-content" class="hidden"></div>
+    <button id="show-answer-btn" class="primary-btn zone hidden">Show Answer</button>
+    <div id="ease-buttons" class="zone hidden"></div>
   </main>
 
-  <footer id="controls">
-    <button id="show-answer-btn" class="primary-btn hidden">Show Answer</button>
-    <div id="ease-buttons" class="hidden"></div>
-    <button id="undo-btn" class="secondary-btn">Undo</button>
-  </footer>
+  <button id="undo-btn">Undo</button>
 
   <script src="app.js"></script>
 </body>

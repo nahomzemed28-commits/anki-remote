@@ -1,58 +1,48 @@
 const EASE_LABELS = { 1: 'Again', 2: 'Hard', 3: 'Good', 4: 'Easy' };
 
-const deckNameEl = document.getElementById('deck-name');
 const connDot = document.getElementById('conn-dot');
 const emptyState = document.getElementById('empty-state');
 const emptyMessage = document.getElementById('empty-message');
-const cardContent = document.getElementById('card-content');
 const showAnswerBtn = document.getElementById('show-answer-btn');
 const easeButtons = document.getElementById('ease-buttons');
 const undoBtn = document.getElementById('undo-btn');
 
 let busy = false;
 
+function showZone(zone) {
+  emptyState.classList.add('hidden');
+  showAnswerBtn.classList.add('hidden');
+  easeButtons.classList.add('hidden');
+  zone.classList.remove('hidden');
+}
+
 function render(state) {
   if (state.error) {
     connDot.className = 'dot dot-off';
-    emptyState.classList.remove('hidden');
-    cardContent.classList.add('hidden');
-    showAnswerBtn.classList.add('hidden');
-    easeButtons.classList.add('hidden');
-    deckNameEl.textContent = 'Anki Remote';
     emptyMessage.textContent = "Can't reach Anki — is it open with AnkiConnect installed?";
+    showZone(emptyState);
     return;
   }
 
   connDot.className = 'dot dot-on';
 
   if (!state.reviewing) {
-    emptyState.classList.remove('hidden');
-    cardContent.classList.add('hidden');
-    showAnswerBtn.classList.add('hidden');
-    easeButtons.classList.add('hidden');
-    deckNameEl.textContent = 'Anki Remote';
-    emptyMessage.textContent = 'Not reviewing.';
+    emptyMessage.textContent = 'Not reviewing';
+    showZone(emptyState);
     return;
   }
 
-  deckNameEl.textContent = state.deckName || 'Anki Remote';
-  emptyState.classList.add('hidden');
-  cardContent.classList.remove('hidden');
-
   if (!state.answerShown) {
-    cardContent.innerHTML = state.question;
-    showAnswerBtn.classList.remove('hidden');
-    easeButtons.classList.add('hidden');
+    showZone(showAnswerBtn);
   } else {
-    cardContent.innerHTML = state.answer;
-    showAnswerBtn.classList.add('hidden');
-    easeButtons.classList.remove('hidden');
     renderEaseButtons(state.buttons, state.nextReviews);
+    showZone(easeButtons);
   }
 }
 
 function renderEaseButtons(buttons, nextReviews) {
   easeButtons.innerHTML = '';
+  easeButtons.className = `zone count-${buttons.length}`;
   buttons.forEach((ease, i) => {
     const btn = document.createElement('button');
     btn.className = `ease-btn ease-${ease}`;

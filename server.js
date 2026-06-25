@@ -49,9 +49,6 @@ async function getState() {
   return {
     reviewing: true,
     cardId: card.cardId,
-    deckName: card.deckName,
-    question: card.question,
-    answer: card.answer,
     buttons: card.buttons || [1, 2, 3, 4],
     nextReviews: card.nextReviews || [],
     answerShown,
