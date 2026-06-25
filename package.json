@@ -1,0 +1,28 @@
+{
+  "name": "anki-remote",
+  "version": "1.0.0",
+  "description": "Use your phone as a remote control for Anki desktop review, via AnkiConnect.",
+  "main": "server.js",
+  "bin": {
+    "anki-remote": "./server.js"
+  },
+  "files": [
+    "server.js",
+    "public",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "anki",
+    "ankiconnect",
+    "flashcards",
+    "remote"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
