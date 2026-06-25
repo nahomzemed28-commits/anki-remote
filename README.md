@@ -2,6 +2,10 @@
 
 Use your phone as a remote control for Anki review sessions on your computer.
 
+It's a **blind remote** on purpose — it shows no card text, just big
+full-screen buttons (Show Answer, then Again/Hard/Good/Easy). You look at
+the card on your computer screen and tap the buttons on your phone.
+
 How it works: a small local server runs on your computer (where Anki lives)
 and talks to the [AnkiConnect](https://ankiweb.net/shared/info/2055492159)
 addon over `127.0.0.1`. Your phone never talks to AnkiConnect directly — it
@@ -22,16 +26,15 @@ Anki.
    AnkiConnect's defaults (listening on `127.0.0.1:8765`) work fine since
    this server runs on the same machine.
 
-2. **Start the remote server.**
-
-   No install needed — just run:
+2. **Get the code and start the server.**
 
    ```
-   npx anki-remote
+   git clone https://github.com/nahomzemed28-commits/anki-remote.git
+   cd anki-remote
+   npm start
    ```
 
-   (Requires Node.js 18+. If you've cloned this repo instead, run
-   `npm start` from the project folder.)
+   No dependencies to install — it's plain Node.js, zero npm packages.
 
 3. The terminal prints a URL like `http://192.168.1.23:8080`. Open that URL
    in your phone's browser (phone must be on the **same WiFi network** as
@@ -49,10 +52,6 @@ Anki.
 
 ## Limitations
 
-- Card styling (custom CSS) and embedded media (images/audio) from your note
-  types are not fetched — only the raw question/answer HTML is shown.
-  Plain text/basic-HTML cards look fine; heavily styled cards may look
-  plain.
 - The remote assumes it's the only thing driving the review screen. If you
   also click around in Anki's desktop window mid-review, the phone's
   "show answer" state can get out of sync until the next card.
@@ -61,5 +60,5 @@ Anki.
 ## Changing the port
 
 ```
-PORT=9000 npx anki-remote
+PORT=9000 npm start
 ```
