@@ -9,8 +9,7 @@
   "files": [
     "server.js",
     "public",
-    "README.md",
-    "LICENSE"
+    "README.md"
   ],
   "scripts": {
     "start": "node server.js"
@@ -21,7 +20,7 @@
     "flashcards",
     "remote"
   ],
-  "license": "MIT",
+  "license": "UNLICENSED",
   "engines": {
     "node": ">=18"
   }
