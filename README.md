@@ -23,6 +23,8 @@ the card on your computer and tap on your phone.
 
 That's it. Tip: bookmark the link or "Add to Home Screen" on your phone so you don't have to retype it next time.
 
+Licensed under [PolyForm Noncommercial 1.0.0](LICENSE) — free to use, modify, and share for non-commercial purposes.
+
 ---
 
 <details>

@@ -9,7 +9,8 @@
   "files": [
     "server.js",
     "public",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "start": "node server.js"
@@ -20,7 +21,7 @@
     "flashcards",
     "remote"
   ],
-  "license": "UNLICENSED",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "engines": {
     "node": ">=18"
   }
